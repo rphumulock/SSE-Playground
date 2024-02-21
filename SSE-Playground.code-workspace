@@ -1,14 +1,13 @@
 {
   "folders": [
-    {
-      "path": "."
-    },
-    {
-      "path": "javascript"
-    },
-    {
-      "path": "java-spring-boot"
-    }
-  ],
-  "settings": {}
+	{
+		"path": "."
+	},
+	{
+		"path": "javascript"
+	}
+],
+  "settings": {
+    "java.compile.nullAnalysis.mode": "automatic"
+  }
 }
