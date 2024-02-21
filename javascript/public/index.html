@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSE Example</title>
+</head>
+<body>
+  <h1>Server-Sent Events Example</h1>
+  <div id="events"></div>
+
+  <script>
+    const eventsDiv = document.getElementById('events');
+    eventsDiv.style.height = "500px";
+    eventsDiv.style.overflow = "scroll";
+    eventsDiv.style.border = "3px solid black";
+    eventsDiv.style.padding = "5px";
+
+    // Event listener for Server-Sent Events
+    const eventSource = new EventSource('/events');
+    eventSource.onmessage = function(event) {
+      const message = document.createElement('p');
+      message.textContent = `Received: ${event.data}`;
+      eventsDiv.appendChild(message);
+    };
+
+    eventSource.onend = function() {
+      console.log('Event stream ended');
+      eventSource.close(); // Close the EventSource
+    };
+
+    eventSource.onerror = function() {
+      console.log('Error stream ended');
+      eventSource.close();
+    }
+  </script>
+</body>
+</html>
