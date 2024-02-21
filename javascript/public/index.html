@@ -7,31 +7,194 @@
 </head>
 <body>
   <h1>Server-Sent Events Example</h1>
-  <div id="events"></div>
+  <div id="1"></div>
+  <div id="2"></div>
+  <div id="3"></div>
+  <div id="4"></div>
+  <div id="5"></div>
+  <div id="6"></div>
+  <div id="7"></div>
+
 
   <script>
-    const eventsDiv = document.getElementById('events');
-    eventsDiv.style.height = "500px";
-    eventsDiv.style.overflow = "scroll";
-    eventsDiv.style.border = "3px solid black";
-    eventsDiv.style.padding = "5px";
+    const eventsDiv1 = document.getElementById('1');
+    eventsDiv1.style.height = "500px";
+    eventsDiv1.style.overflow = "scroll";
+    eventsDiv1.style.border = "3px solid black";
+    eventsDiv1.style.padding = "5px";
 
     // Event listener for Server-Sent Events
-    const eventSource = new EventSource('/events');
-    eventSource.onmessage = function(event) {
+    const eventSource1 = new EventSource('/1');
+    eventSource1.onmessage = function(event) {
       const message = document.createElement('p');
       message.textContent = `Received: ${event.data}`;
-      eventsDiv.appendChild(message);
+      eventsDiv1.appendChild(message);
     };
 
-    eventSource.onend = function() {
+    eventSource1.onend = function() {
       console.log('Event stream ended');
-      eventSource.close(); // Close the EventSource
+      eventSource1.close(); // Close the EventSource
     };
 
-    eventSource.onerror = function() {
+    eventSource1.onerror = function() {
       console.log('Error stream ended');
-      eventSource.close();
+      eventSource1.close();
+    }
+
+    // 2
+
+    const eventsDiv2 = document.getElementById('2');
+    eventsDiv2.style.height = "500px";
+    eventsDiv2.style.overflow = "scroll";
+    eventsDiv2.style.border = "3px solid black";
+    eventsDiv2.style.padding = "5px";
+
+    // Event listener for Server-Sent Events
+    const eventSource2 = new EventSource('/2');
+    eventSource2.onmessage = function(event) {
+      const message = document.createElement('p');
+      message.textContent = `Received: ${event.data}`;
+      eventsDiv2.appendChild(message);
+    };
+
+    eventSource2.onend = function() {
+      console.log('Event stream ended');
+      eventSource2.close(); // Close the EventSource
+    };
+
+    eventSource2.onerror = function() {
+      console.log('Error stream ended');
+      eventSource2.close();
+    }
+
+    // 3
+
+    const eventsDiv3 = document.getElementById('3');
+    eventsDiv3.style.height = "500px";
+    eventsDiv3.style.overflow = "scroll";
+    eventsDiv3.style.border = "3px solid black";
+    eventsDiv3.style.padding = "5px";
+
+    // Event listener for Server-Sent Events
+    const eventSource3 = new EventSource('/3');
+    eventSource3.onmessage = function(event) {
+      const message = document.createElement('p');
+      message.textContent = `Received: ${event.data}`;
+      eventsDiv3.appendChild(message);
+    };
+
+    eventSource3.onend = function() {
+      console.log('Event stream ended');
+      eventSource3.close(); // Close the EventSource
+    };
+
+    eventSource3.onerror = function() {
+      console.log('Error stream ended');
+      eventSource3.close();
+    }
+
+    // 4
+
+    const eventsDiv4 = document.getElementById('4');
+    eventsDiv4.style.height = "500px";
+    eventsDiv4.style.overflow = "scroll";
+    eventsDiv4.style.border = "3px solid black";
+    eventsDiv4.style.padding = "5px";
+
+    // Event listener for Server-Sent Events
+    const eventSource4 = new EventSource('/4');
+    eventSource4.onmessage = function(event) {
+      const message = document.createElement('p');
+      message.textContent = `Received: ${event.data}`;
+      eventsDiv4.appendChild(message);
+    };
+
+    eventSource4.onend = function() {
+      console.log('Event stream ended');
+      eventSource4.close(); // Close the EventSource
+    };
+
+    eventSource4.onerror = function() {
+      console.log('Error stream ended');
+      eventSource4.close();
+    }
+
+    // 5
+
+    const eventsDiv5 = document.getElementById('5');
+    eventsDiv5.style.height = "500px";
+    eventsDiv5.style.overflow = "scroll";
+    eventsDiv5.style.border = "3px solid black";
+    eventsDiv5.style.padding = "5px";
+
+    // Event listener for Server-Sent Events
+    const eventSource5 = new EventSource('/5');
+    eventSource5.onmessage = function(event) {
+      const message = document.createElement('p');
+      message.textContent = `Received: ${event.data}`;
+      eventsDiv5.appendChild(message);
+    };
+
+    eventSource5.onend = function() {
+      console.log('Event stream ended');
+      eventSource5.close(); // Close the EventSource
+    };
+
+    eventSource5.onerror = function() {
+      console.log('Error stream ended');
+      eventSource5.close();
+    }
+
+    // 6
+
+    const eventsDiv6 = document.getElementById('6');
+    eventsDiv6.style.height = "500px";
+    eventsDiv6.style.overflow = "scroll";
+    eventsDiv6.style.border = "3px solid black";
+    eventsDiv6.style.padding = "5px";
+
+    // Event listener for Server-Sent Events
+    const eventSource6 = new EventSource('/6');
+    eventSource6.onmessage = function(event) {
+      const message = document.createElement('p');
+      message.textContent = `Received: ${event.data}`;
+      eventsDiv6.appendChild(message);
+    };
+
+    eventSource6.onend = function() {
+      console.log('Event stream ended');
+      eventSource6.close(); // Close the EventSource
+    };
+
+    eventSource6.onerror = function() {
+      console.log('Error stream ended');
+      eventSource6.close();
+    }
+
+    // 7
+
+    const eventsDiv7 = document.getElementById('7');
+    eventsDiv7.style.height = "500px";
+    eventsDiv7.style.overflow = "scroll";
+    eventsDiv7.style.border = "3px solid black";
+    eventsDiv7.style.padding = "5px";
+
+    // Event listener for Server-Sent Events
+    const eventSource7 = new EventSource('/7');
+    eventSource7.onmessage = function(event) {
+      const message = document.createElement('p');
+      message.textContent = `Received: ${event.data}`;
+      eventsDiv7.appendChild(message);
+    };
+
+    eventSource7.onend = function() {
+      console.log('Event stream ended');
+      eventSource7.close(); // Close the EventSource
+    };
+
+    eventSource7.onerror = function() {
+      console.log('Error stream ended');
+      eventSource7.close();
     }
   </script>
 </body>
