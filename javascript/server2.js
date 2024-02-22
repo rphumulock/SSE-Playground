@@ -20,12 +20,14 @@ server.on("request", (req, res) => {
 
     for (let i = 1; i <= endpointCount; i++) {
       if (req.url === `/${i}`) {
+        res.setHeader('Content-Type', 'text/event-stream');
+        res.setHeader('Cache-Control', 'no-cache');
+        res.setHeader('Access-Control-Allow-Credentials', 'true');
+        res.setHeader("Access-Control-Allow-Origin", "*"); // Set appropriate origin here
+        res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
         // Server-Sent Events endpoint
-        res.writeHead(200, {
-          "Content-Type": "text/event-stream",
-          "Cache-Control": "no-cache",
-          Connection: "keep-alive",
-        });
+        res.writeHead(200);
 
         let eventCount = 0;
 

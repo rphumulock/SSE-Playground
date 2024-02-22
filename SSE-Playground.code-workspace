@@ -5,6 +5,9 @@
 	},
 	{
 		"path": "javascript"
+	},
+	{
+		"path": "java-spring-boot"
 	}
 ],
   "settings": {
