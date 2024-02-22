@@ -4,4 +4,8 @@ Server-Sent Events (SSE) is a technology that enables servers to push real-time 
 
 ##### Caveats
 
+#### HTTP1.1
 We're working with 7 event sources. The reason I'm doing this is to show that browsers only allow 6 http1.1-connections per domain. If you have 7 events - the 7th event will have to wait for the other ones to finish in order to start.
+
+#### HTTP2
+Funions
