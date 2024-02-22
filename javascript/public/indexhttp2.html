@@ -1,46 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SSE Example</title>
-</head>
-<body>
-  <h1>Server-Sent Events Example</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSE Example</title>
+  </head>
+  <body>
+    <h1>Server-Sent Events Example</h1>
 
-  <script>
-    for (let i = 1; i <= 15; i++) {
-      const eventsDiv = document.createElement('div');
-      eventsDiv.id = `${i}`;
-      const header = document.createElement('h1');
-      eventsDiv.id = `${i}`;
-      header.innerHTML = `Event Stream ${i}`;
-      eventsDiv.appendChild(header);
+    <script>
+      const button = document.querySelector("#btn");
+      button.style.height = "50px";
+      button.style.width = "100px";
 
-      eventsDiv.style.height = "500px";
-      eventsDiv.style.overflow = "scroll";
-      eventsDiv.style.border = "3px solid black";
-      eventsDiv.style.padding = "5px";
-      document.body.appendChild(eventsDiv);
-  
-      const eventSource = new EventSource(`/${i}`);
-      eventSource.onmessage = function(event) {
-        const message = document.createElement('p');
-        message.textContent = `Received: ${event.data}`;
-        eventsDiv.appendChild(message);
-      };
-  
-      eventSource.onend = function() {
-        console.log('Event stream ended');
-        eventSource.close(); // Close the EventSource
-      };
-  
-      eventSource.onerror = function() {
-        console.log('Error stream ended');
-        eventSource.close();
-      };
-    }
-  </script>
-  
-</body>
+      button.addEventListener("click", () => {
+        const eventSource = new EventSource(`/slow`);
+        eventSource.onmessage = function (event) {
+          message.textContent = `Received: ${event.data}`;
+        };
+      });
+
+      for (let i = 1; i <= 15; i++) {
+        const eventsDiv = document.createElement("div");
+        const button = document.createElement("button");
+        button.style.height = "50px";
+        button.style.width = "100px";
+        button.innerHTML = "Start SSE";
+
+        eventsDiv.id = `${i}`;
+        const header = document.createElement("h1");
+
+        header.innerHTML = `Event Stream ${i}`;
+        eventsDiv.appendChild(header);
+        eventsDiv.appendChild(button);
+
+        eventsDiv.style.height = "500px";
+        eventsDiv.style.overflow = "scroll";
+        eventsDiv.style.border = "3px solid black";
+        eventsDiv.style.padding = "5px";
+        document.body.appendChild(eventsDiv);
+
+        button.addEventListener("click", () => {
+          const eventSource = new EventSource(`/${i}`);
+          eventSource.onmessage = function (event) {
+            const message = document.createElement("p");
+            message.textContent = `Received: ${event.data}`;
+            eventsDiv.appendChild(message);
+          };
+
+          eventSource.onend = function () {
+            console.log("Event stream ended");
+            eventSource.close(); // Close the EventSource
+          };
+
+          eventSource.onerror = function () {
+            console.log("Error stream ended");
+            eventSource.close();
+          };
+        });
+      }
+    </script>
+  </body>
 </html>
