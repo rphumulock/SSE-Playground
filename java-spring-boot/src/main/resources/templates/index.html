@@ -4,28 +4,23 @@
     <title>Homepage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script th:src="@{/webjars/htmx.org/1.9.10/dist/htmx.min.js}" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@sudodevnull/datastar" type="module"></script>
 </head>
 <body>
 <main class="my-5">
     <div class="container">
         <h1 class="mb-4">Homepage</h1>
-        <p class="mb-5 js-greeting">Hello World!</p>
 
-        <button class="btn btn-primary" hx-trigger="click" hx-get="/subscribe" hx-target="#test1" hx-swap="innerHTML">Subscribe</button>
+        <div id="contact_1" data-fetch-url="'/contact/1'" data-on-load="$$get">Replace me</div>
 
-        <div class="card" id="test1"></div>
 
-        <div class="card" id="test2"></div>
 
     </div>
 </main>
 
 <script>
-
-    const e = new EventSource('/subscribe');
 
 
 </script>
