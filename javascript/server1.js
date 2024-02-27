@@ -14,7 +14,7 @@ app.use(express.static("public"));
 
 // Route for serving the index.html file
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/indexhttp1.1.html"));
+  res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 // Server-Sent Events endpoint

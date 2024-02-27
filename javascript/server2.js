@@ -10,7 +10,7 @@ const server = http2.createSecureServer({
 server.on("request", (req, res) => {
   if (req.url === "/") {
     // Serve the index.html file
-    const indexPath = __dirname + "/public/indexhttp2.html";
+    const indexPath = __dirname + "/public/index.html";
     const indexHtml = fs.readFileSync(indexPath);
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end(indexHtml);
@@ -20,12 +20,18 @@ server.on("request", (req, res) => {
 
     for (let i = 1; i <= endpointCount; i++) {
       if (req.url === `/${i}`) {
-        res.setHeader('Content-Type', 'text/event-stream');
-        res.setHeader('Cache-Control', 'no-cache');
-        res.setHeader('Access-Control-Allow-Credentials', 'true');
+        res.setHeader("Content-Type", "text/event-stream");
+        res.setHeader("Cache-Control", "no-cache");
+        res.setHeader("Access-Control-Allow-Credentials", "true");
         res.setHeader("Access-Control-Allow-Origin", "*"); // Set appropriate origin here
-        res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-        res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+        res.setHeader(
+          "Access-Control-Allow-Methods",
+          "GET, POST, PUT, DELETE, OPTIONS"
+        );
+        res.setHeader(
+          "Access-Control-Allow-Headers",
+          "Content-Type, Authorization"
+        );
         // Server-Sent Events endpoint
         res.writeHead(200);
 

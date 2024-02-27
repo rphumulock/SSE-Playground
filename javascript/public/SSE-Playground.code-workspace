@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"path": ".."
+	},
+	{
+		"path": "../../java-spring-boot"
+	}
+],
+  "settings": {
+    "java.compile.nullAnalysis.mode": "automatic"
+  }
+}
